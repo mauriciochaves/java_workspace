@@ -9,5 +9,5 @@ configuração de variavel de ambiente JAVA_HOME
 instalação da IDE desejavel (IntelliJ ou VsCode)
 
 Execução:
-executar a classe Runner n/
+executar a classe Runner
 executar arquivos .feature
