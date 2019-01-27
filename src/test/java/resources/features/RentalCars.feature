@@ -10,7 +10,7 @@ Feature: Rental Cars
       And  Preencho o local de retirada com "Recife"
       And  Preencho a data de retirada igual à "28" do proximo mês
       And Preencho a data de devolução igual à "28" do proximo mês, referente a data de retirada
-      And Preencho a data de contudor com "25"
+      And Preencho a idade do contudor com "25" anos
       And Clico em pesquisar
       When Eu acesso a SearchPage
       And Seleciona a opção "Centro de Recife"
@@ -50,7 +50,7 @@ Feature: Rental Cars
     And Eu preencho os dados do condutor com Titulo com "Sr", Nome "Testes", Sobrenome "Sistemas", email "testes.sistemas.cesar@gmail.com", telefone "81999080544"
     And clico em reservar
     Then Eu sou PaymentPage
-    And Valido se é apresentado os campos para informar os dados de paggamento
+    And Valido se é apresentado os campos para informar os dados de pagamento
 
   @projeto_final @Scenario4
   Scenario: Solicito um orçamento por email
