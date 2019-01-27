@@ -14,7 +14,7 @@ public  class BasePage {
         this.driver = driver;
     }
 
-    public void quit(WebDriver driver){
+    public void quit(){
         driver.quit();
     }
 
@@ -23,7 +23,7 @@ public  class BasePage {
         return wait;
     }
 
-    public void click (WebDriver driver, WebElement element){
+    public void click (WebElement element){
         wait(driver).until(ExpectedConditions.elementToBeClickable(element)).click();
     }
 

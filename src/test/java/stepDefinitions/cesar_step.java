@@ -8,19 +8,19 @@ import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.HomePage;
-import static org.junit.Assert.*;
+import pages.cesar.CesarPage;
 
-public class Steps {
+public class cesar_step {
 
     public WebDriver driver;
-    HomePage home;
+    CesarPage home;
 
     @Before
     public void beforeScenario(){
         System.setProperty("webdriver.chrome.driver", "C:\\Projetos\\tools\\drivers\\chromedriver.exe");
          this.driver = new ChromeDriver();
-         home= new HomePage(driver);
+
+         home= new CesarPage(driver);
     }
 
     @After
