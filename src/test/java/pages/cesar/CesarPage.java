@@ -27,7 +27,7 @@ public class CesarPage extends BasePage {
     }
 
     public void fieldInSearch (String text) {
-        send(driver,driver.findElement(search), text);
+        send(driver.findElement(search), text, true);
     }
 
     public void searchClickOn () {
@@ -35,7 +35,7 @@ public class CesarPage extends BasePage {
     }
 
     public String validSearch () {
-        String text = find(driver,driver.findElement(title_page)).getText();
+        String text = find(driver.findElement(title_page)).getText();
         return text;
    }
 

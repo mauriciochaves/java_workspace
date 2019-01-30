@@ -1,50 +1,47 @@
 package stepDefinitions;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.WebDriver;
+import pages.HomePage;
 
 
 public class HomeStep {
     WebDriver driver = Environment.driver;
+    HomePage home;
 
-    @Given("Eu acesso a HomePage")
-    public void eu_acesso_a_home_page() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+
+    @Given("preencho o local de retirada com {string}")
+    public void preencho_o_local_de_retirada_com(String local) throws InterruptedException {
+        home.setPickUpLocation(local);
+
     }
 
-    @Given("Preencho o local de retirada com {string}")
-    public void preencho_o_local_de_retirada_com(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+    @Given("A página inicial está carregada com sucesso")
+    public void aPáginaInicialEstaCarregadaComSucesso() {
+        home = new HomePage(driver);
+        home.messageCookie();
+
     }
 
-    @Given("Preencho a data de retirada igual à {string} do proximo mês")
-    public void preencho_a_data_de_retirada_igual_à_do_proximo_mês(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+    @And("data de retirada igual à {string} do mês atual e data de devolução igual à {string} do próximo mês")
+    public void dataDeRetiradaIgualÀDoMêsAtualEDataDeDevoluçãoIgualÀDoPróximoMês(String date1, String date2){
+        home.setDatesPickUpDropOff(Integer.parseInt(date1), Integer.parseInt(date2), 1);
+
     }
 
-    @Given("Preencho a data de devolução igual à {string} do proximo mês, referente a data de retirada")
-    public void preencho_a_data_de_devolução_igual_à_do_proximo_mês_referente_a_data_de_retirada(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+    @And("idade do contudor com {string} anos")
+    public void idadeDoContudorComAnos(String idade) throws InterruptedException {
+        home.setAgedBetween(idade);
+
     }
 
-    @Given("Preencho a idade do contudor com {string} anos")
-    public void preencho_a_idade_do_contudor_com_anos(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
-    }
-
-    @Given("Clico em pesquisar")
+    @Given("clico em pesquisar")
     public void clico_em_pesquisar() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
-    }
+        home.searchClickOn();
 
+    }
 
     @Given("Clico em Login")
     public void clico_em_Login() {
@@ -99,4 +96,5 @@ public class HomeStep {
         // Write code here that turns the phrase above into concrete actions
         throw new cucumber.api.PendingException();
     }
+
 }
