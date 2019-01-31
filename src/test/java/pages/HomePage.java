@@ -24,20 +24,25 @@ public class HomePage extends BasePage {
     private By btn_login = By.id("crmLogin");
     private By lbl_message_login_sucess = By.cssSelector("#langCurrencyForm p");
     private By btn_menu_control_panel = By.cssSelector("a[href*=Dashboard]");
+    private By btn_most_wanted_destinations = By.id("globalNavCrumbLink");
 
+
+    public void mostWantedDestinationsClickOn() {
+        click(btn_most_wanted_destinations);
+
+    }
 
     public void setPickUpLocation (String text) throws InterruptedException {
-        send(driver.findElement(tx_pick_up_location), text, true);
+        send(tx_pick_up_location, text, true);
         Thread.sleep(2000);
-        move_for_click(driver.findElement(By.xpath("//a/div/em[contains(text(),'"+text+"')]")));
+        move_for_click(By.xpath("//a/div/em[contains(text(),'"+text+"')]"));
 
     }
 
     public void messageCookie(){
         try{
-            WebElement element = find(driver.findElement(btn_cookie));
-            if (element.isDisplayed()){
-                click(element);
+            if (isDisplay(btn_cookie)){
+                click(btn_cookie);
             }
         }catch(Exception e){
             System.out.println("Cookie não foi apresentado: "+e.getMessage());
@@ -45,22 +50,22 @@ public class HomePage extends BasePage {
     }
 
     public void pickUpNextMonthClickOn(){
-        click(driver.findElement(btn_pick_up_date_next_month));
+        click(btn_pick_up_date_next_month);
     }
 
     public void setDatesPickUpDropOff (int date_pick_up, int date_drop_off, int passMonth) {
         if (!(date_drop_off < date_pick_up)){
-            click(driver.findElement(cb_pick_up_date));
+            click(cb_pick_up_date);
 
-            WebElement element_tbody = find(driver.findElement(By.className("ui-datepicker-calendar")));
+            WebElement element_tbody = find(By.className("ui-datepicker-calendar"));
             if (element_tbody.isDisplayed()){
-                move_for_click(driver.findElement(By.xpath("//a[contains(text(),'"+date_pick_up+"')]")));
+                move_for_click(By.xpath("//a[contains(text(),'"+date_pick_up+"')]"));
 
                 //efetua click no next do calendario do mês
                 for (int click =1; click <=passMonth; click++) {
                     pickUpNextMonthClickOn();
                 }
-                click(driver.findElement(By.xpath("//a[contains(text(),'"+date_drop_off+"')]")));
+                click(By.xpath("//a[contains(text(),'"+date_drop_off+"')]"));
             }
         }
 
@@ -69,32 +74,37 @@ public class HomePage extends BasePage {
     public void setAgedBetween (String age) throws InterruptedException {
         Thread.sleep(1000);
         if ( Integer.parseInt(age) < 30){
-            click(driver.findElement(cb_age_between));
-            send(driver.findElement(tx_age_between), age, true);
+            click(cb_age_between);
+            send(tx_age_between, age, true);
         }
     }
 
     public void searchClickOn(){
-        click(driver.findElement(btn_search));
+        click(btn_search);
     }
 
     public void loginMenuClickOn(){
-        click(driver.findElement(btn_login_menu));
+        click(btn_login_menu);
 
     }
 
     public void login(String email, String password){
-        send(driver.findElement(tx_email), email, true);
-        send(driver.findElement(tx_password), password, true);
-        click(driver.findElement(btn_login));
+        send(tx_email, email, true);
+        send(tx_password, password, true);
+        click(btn_login);
 
     }
 
     public String getMessageLoginSucess() throws InterruptedException {
         Thread.sleep(1000);
-        return find(driver.findElement(lbl_message_login_sucess)).getText();
+        return text(lbl_message_login_sucess);
     }
+
     public void controlPanelClickOn(){
-        click(driver.findElement(btn_menu_control_panel));
+        click(btn_menu_control_panel);
+    }
+
+    public void destinationClickOn(String destination){
+        click(By.xpath("//em[contains(text(),'"+destination+"')]"));
     }
 }

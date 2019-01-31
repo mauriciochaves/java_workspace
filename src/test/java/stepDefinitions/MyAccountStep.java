@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
@@ -21,4 +22,5 @@ public class MyAccountStep {
     public void verificoSeÉApresentadaMinhaConta() {
         Assert.assertEquals("Bem-vindo\nJá completou o seu perfil? Insira os seus dados para poder reservar o seu carro com mais agilidade.", account.getMessageInitial());
     }
+
 }

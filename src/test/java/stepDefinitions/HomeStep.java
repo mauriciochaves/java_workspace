@@ -72,4 +72,16 @@ public class HomeStep {
     public void clicoEmPainelDeControle() {
         home.controlPanelClickOn();
     }
+
+    @And("clico em destinos mais buscados")
+    public void clicoEmDestinosMaisBuscados() {
+        home.mostWantedDestinationsClickOn();
+
+    }
+
+    @And("seleciono a opção {string}")
+    public void selecionoAOpção(String destination) {
+        home.destinationClickOn(destination);
+
+    }
 }

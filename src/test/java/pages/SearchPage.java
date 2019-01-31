@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 
 public class SearchPage extends BasePage {
 
-    //em cada page é necessario no construtor passar o super(driver) e extends BasePage
     public SearchPage(WebDriver driver) {
         super(driver);
     }
@@ -15,12 +14,12 @@ public class SearchPage extends BasePage {
     private By list_results_cars_page = By.cssSelector(".carResultDiv");
 
     public String getLocationPreview(){
-        return find(driver.findElement(lbl_devolution_location)).getText();
+        return text(lbl_devolution_location);
     }
 
     public void selectFilterDepositWithdrawal (String value){
 
-        click(driver.findElement(By.cssSelector("#deposit-filter-content li:nth-child("+indexDepositWithdrawal(value)+") div")));
+        click(By.cssSelector("#deposit-filter-content li:nth-child("+indexDepositWithdrawal(value)+") div"));
     }
 
     public int indexDepositWithdrawal(String value){
@@ -40,12 +39,12 @@ public class SearchPage extends BasePage {
     }
 
     public void selectFilterCarSize(String TypeCar){
-        move_for_click(driver.findElement(By.cssSelector(".sr-CarCategories_Item:nth-child("+indexFilterCarSize(TypeCar)+")")));
+        move_for_click(By.cssSelector(".sr-CarCategories_Item:nth-child("+indexFilterCarSize(TypeCar)+")"));
 
     }
 
     public int getResultTotalCars (){
-        return find_for_list(driver.findElements(list_results_cars_page)).toString().length();
+        return find_for_list(list_results_cars_page).toString().length();
 
     }
 
@@ -65,4 +64,9 @@ public class SearchPage extends BasePage {
         return count;
     }
 
+    public void continueButtonClickOn (String car) throws InterruptedException {
+        Thread.sleep(3000);
+        move_for_click(By.xpath("//span[contains(text(),'"+car+"')]/following-sibling::span[contains(text(),'Continuar')]"));
+
+    }
 }

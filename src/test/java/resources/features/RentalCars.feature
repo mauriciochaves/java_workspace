@@ -27,30 +27,22 @@ Feature: Rental Cars
       When a página da minha conta está carregada com sucesso
       Then Verifico se é apresentada Minha Conta
 
-#    @projeto_final @Scenario3
-#    Scenario: Acessar a pagina de pagamento
-#      Given Eu acesso a HomePage
-#      And Clico em Login
-#      And Preencho o campo email com "testes.sistemas.cesar@gmail.com", senha com "testesdesistemas123" e clico em Login
-#      And Eu valido a mensagem informando que estou logado com o usuario "Testes Sistemas"
-#      And Eu clico em Minha Conta
-#      When Eu acesso a MyAccountPage
-#      And Clico em Painel de Controle
-#      And Clico em Procurar Carro
-#      And Eu acesso a HomePage
-#      And Clico em destinos mais buscados
-#      And Seleciono a opção "Lisboa"
-#      And Clico em Pesquisar
-#      And Eu acesso a SearchPage
-#      And Seleciono Continuar no carro "1" da lista
-#      And Eu acesso a optionPage
-#      And Clico em prosseguir o pagamento sem cobertura
-#      And Eu sou ConductorPage
-#      And Eu preencho os dados do condutor com Titulo com "Sr", Nome "Testes", Sobrenome "Sistemas", email "testes.sistemas.cesar@gmail.com", telefone "81999080544"
-#      And clico em reservar
-#      Then Eu sou PaymentPage
-#      And Valido se é apresentado os campos para informar os dados de pagamento
-#
+    @projeto_final @Scenario3
+    Scenario: Acessar a página de pagamento sem o usuário está logado
+      Given A página inicial está carregada com sucesso
+      And clico em destinos mais buscados
+      And seleciono a opção "Lisboa"
+      And clico em pesquisar
+      When A página de pesquisa está carregada com sucesso
+      And seleciono Continuar no carro "Peugeot 208" da lista de resultados
+      And A página de opções está carregada com sucesso
+      And clico em Prosseguir ao pagamento sem cobertura superior
+      And A página do condutor do veículo carregada com sucesso
+      And preencho os dados do condutor onde Título é: "Sr", Nome: "Testes", Sobrenome: "Sistemas", email: "testes.sistemas.cesar@gmail.com", Telefone: "81999080544"
+      And clico em reservar
+      Then A página de pagamento está carregada com sucesso
+      And Valido apresentação dos campos necessários para informar os dados de pagamento
+
 #    @projeto_final @Scenario4
 #    Scenario: Solicito um orçamento por email
 #      Given Eu acesso a HomePage

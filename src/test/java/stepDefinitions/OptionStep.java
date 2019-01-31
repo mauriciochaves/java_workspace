@@ -1,20 +1,26 @@
 package stepDefinitions;
 
-import cucumber.api.java.en.When;
+import cucumber.api.java.en.And;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import pages.OptionPage;
 
 public class OptionStep {
     WebDriver driver = Environment.driver;
+    OptionPage option;
 
-    @When("Eu acesso a optionPage")
-    public void eu_acesso_a_optionPage() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+    @And("A página de opções está carregada com sucesso")
+    public void aPáginaDeOpçõesEstáCarregadaComSucesso() {
+        option= new OptionPage(driver);
+        option.switchNewTabOption();
+        Assert.assertEquals("Localização da locadora",option.getTitleRentalLocalization());
+
     }
 
-    @When("Clico em prosseguir o pagamento sem cobertura")
-    public void clico_em_prosseguir_o_pagamento_sem_cobertura() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+
+    @And("clico em Prosseguir ao pagamento sem cobertura superior")
+    public void clicoEmProsseguirAoPagamentoSemCoberturaSuperior() {
+        option.continuePaymentWithoutCoverClickOn();
+
     }
 }

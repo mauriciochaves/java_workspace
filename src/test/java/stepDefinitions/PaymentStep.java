@@ -1,21 +1,27 @@
 package stepDefinitions;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import pages.PaymentPage;
 
 public class PaymentStep {
     WebDriver driver = Environment.driver;
+    PaymentPage payment;
 
-    @Then("Eu sou PaymentPage")
-    public void eu_sou_PaymentPage() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+
+    @Then("A página de pagamento está carregada com sucesso")
+    public void aPáginaDePagamentoEstáCarregadaComSucesso() {
+        payment = new PaymentPage(driver);
+        Assert.assertEquals("Dados de pagamento", payment.getTitleDataPayment());
+
     }
 
-    @Then("Valido se é apresentado os campos para informar os dados de pagamento")
-    public void valido_se_é_apresentado_os_campos_para_informar_os_dados_de_pagamento() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
-    }
 
+    @And("Valido apresentação dos campos necessários para informar os dados de pagamento")
+    public void validoApresentaçãoDosCamposNecessáriosParaInformarOsDadosDePagamento() {
+        Assert.assertTrue(payment.returnDataPaymentIsDisplay());
+
+    }
 }

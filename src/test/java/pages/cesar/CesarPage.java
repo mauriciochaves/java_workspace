@@ -19,28 +19,28 @@ public class CesarPage extends BasePage {
     private By return_search = By.cssSelector("h2 > a");
 
     public void especializacaoClickOn () {
-        click(driver.findElement(especification));
+        click(especification);
     }
 
     public void categoriaEspecializacao () {
-        click(driver.findElement(catEspecification));
+        click(catEspecification);
     }
 
     public void fieldInSearch (String text) {
-        send(driver.findElement(search), text, true);
+        send(search, text, true);
     }
 
     public void searchClickOn () {
-        click(driver.findElement(search_button));
+        click(search_button);
     }
 
     public String validSearch () {
-        String text = find(driver.findElement(title_page)).getText();
-        return text;
+
+        return text(title_page);
    }
 
     public void resultClick () {
-        click(driver.findElement(return_search));
+        click(return_search);
     }
 
 }
