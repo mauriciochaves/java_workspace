@@ -11,13 +11,19 @@ public class HomePage extends BasePage {
         super(driver);
     }
 
-    private By btn_cokkie = By.cssSelector("#js-closeCookieBanner > img");
+    private By btn_cookie = By.cssSelector("#js-closeCookieBanner > img");
     private By tx_pick_up_location = By.cssSelector("#ftsAutocomplete");
     private By cb_pick_up_date = By.cssSelector(".date-panel__arrow");
     private By btn_pick_up_date_next_month = By.cssSelector("#dateselect-month-forward");
     private By cb_age_between = By.cssSelector("#driver-over-min-age");
     private By tx_age_between = By.cssSelector("#driver-age-input");
     private By btn_search = By.cssSelector("#formsubmit");
+    private By btn_login_menu =By.cssSelector("#rch-select-sign-in");
+    private By tx_email = By.id("crmEmail");
+    private By tx_password = By.id("crmPsw");
+    private By btn_login = By.id("crmLogin");
+    private By lbl_message_login_sucess = By.cssSelector("#langCurrencyForm p");
+    private By btn_menu_control_panel = By.cssSelector("a[href*=Dashboard]");
 
 
     public void setPickUpLocation (String text) throws InterruptedException {
@@ -29,7 +35,7 @@ public class HomePage extends BasePage {
 
     public void messageCookie(){
         try{
-            WebElement element = find(driver.findElement(btn_cokkie));
+            WebElement element = find(driver.findElement(btn_cookie));
             if (element.isDisplayed()){
                 click(element);
             }
@@ -72,4 +78,23 @@ public class HomePage extends BasePage {
         click(driver.findElement(btn_search));
     }
 
+    public void loginMenuClickOn(){
+        click(driver.findElement(btn_login_menu));
+
+    }
+
+    public void login(String email, String password){
+        send(driver.findElement(tx_email), email, true);
+        send(driver.findElement(tx_password), password, true);
+        click(driver.findElement(btn_login));
+
+    }
+
+    public String getMessageLoginSucess() throws InterruptedException {
+        Thread.sleep(1000);
+        return find(driver.findElement(lbl_message_login_sucess)).getText();
+    }
+    public void controlPanelClickOn(){
+        click(driver.findElement(btn_menu_control_panel));
+    }
 }

@@ -5,7 +5,7 @@ Feature: Rental Cars
   Given O usuário acessa à aplicação
 
     @projeto_final @Scenario1
-    Scenario: Pesquisa por carros pequenos
+    Scenario: Pesquisar por carros pequenos
       Given A página inicial está carregada com sucesso
       And  preencho o local de retirada com "Recife"
       And  data de retirada igual à "28" do mês atual e data de devolução igual à "30" do próximo mês
@@ -16,19 +16,19 @@ Feature: Rental Cars
       And filtro por "Carros Pequenos"
       Then Verifico se a pesquisa retornou resultados
 
-#    @projeto_final @Scenario2
-#    Scenario: Efetuar login na aplicação
-#      Given Eu acesso a HomePage
-#      And Clico em Login
-#      And Preencho o campo email com "testes.sistemas.cesar@gmail.com", senha com "testesdesistemas123" e clico em Login
-#      And Eu valido a mensagem informando que estou logado com o usuario "Testes Sistemas"
-#      And Eu clico em Minha Conta
-#      And Clico em Painel de Controle
-#      When Eu acesso a MyAccountPage
-#      Then Valido se estou na Minha Conta
-#
+    @projeto_final @Scenario2
+    Scenario: Efetuar login na aplicação
+      Given A página inicial está carregada com sucesso
+      And clico em Login
+      And preencho o campo e-mail com "testes.sistemas.cesar@gmail.com", senha com "testesdesistemas123" e clico em Login
+      And valido a mensagem informando que estou logado com o usuário "Testes Sistemas"
+      And clico em Minha Conta
+      And clico em Painel de Controle
+      When a página da minha conta está carregada com sucesso
+      Then Verifico se é apresentada Minha Conta
+
 #    @projeto_final @Scenario3
-#    Scenario: Acessar a pagina para efetuar o pagamento
+#    Scenario: Acessar a pagina de pagamento
 #      Given Eu acesso a HomePage
 #      And Clico em Login
 #      And Preencho o campo email com "testes.sistemas.cesar@gmail.com", senha com "testesdesistemas123" e clico em Login
