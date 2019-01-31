@@ -62,6 +62,7 @@ public  class BasePage {
         action.moveToElement(find(element)).build().perform();
 
     }
+
     public void move_for_click (WebElement element){
         action.moveToElement(find(element)).click().build().perform();
 

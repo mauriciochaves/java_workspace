@@ -22,8 +22,9 @@ public class HomePage extends BasePage {
 
     public void setPickUpLocation (String text) throws InterruptedException {
         send(driver.findElement(tx_pick_up_location), text, true);
-        Thread.sleep(1000);
-        click(driver.findElement(By.xpath("//a/div/em[contains(text(),'"+text+"')]")));
+        Thread.sleep(2000);
+        move_for_click(driver.findElement(By.xpath("//a/div/em[contains(text(),'"+text+"')]")));
+
     }
 
     public void messageCookie(){
@@ -47,7 +48,7 @@ public class HomePage extends BasePage {
 
             WebElement element_tbody = find(driver.findElement(By.className("ui-datepicker-calendar")));
             if (element_tbody.isDisplayed()){
-                click(driver.findElement(By.xpath("//a[contains(text(),'"+date_pick_up+"')]")));
+                move_for_click(driver.findElement(By.xpath("//a[contains(text(),'"+date_pick_up+"')]")));
 
                 //efetua click no next do calendario do mês
                 for (int click =1; click <=passMonth; click++) {

@@ -40,13 +40,29 @@ public class SearchPage extends BasePage {
     }
 
     public void selectFilterCarSize(String TypeCar){
-        move(driver.findElement(By.xpath("//span[contains(text(),'"+TypeCar+"')]")));
-       // continuar mais tarde click(driver.findElement(By.xpath("//span[contains(text(),'"+TypeCar+"')]")));
-
+        move_for_click(driver.findElement(By.cssSelector(".sr-CarCategories_Item:nth-child("+indexFilterCarSize(TypeCar)+")")));
 
     }
 
     public int getResultTotalCars (){
         return find_for_list(driver.findElements(list_results_cars_page)).toString().length();
+
     }
+
+    public int indexFilterCarSize (String TyperCar){
+        int count = 0;
+
+        if ("Carros Pequenos".equals(TyperCar)) {
+            count = 2;
+        } else if ("Carros Médios".equals(TyperCar)) {
+            count = 3;
+        } else if ("Carros Grandes".equals(TyperCar)) {
+            count = 4;
+        } else{
+            count = 5;
+        }
+
+        return count;
+    }
+
 }
