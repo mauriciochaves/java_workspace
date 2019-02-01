@@ -1,15 +1,9 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class HomePage extends BasePage {
-
-    //em cada page é necessario no construtor passar o super(driver) e extends BasePage
-    public HomePage(WebDriver driver) {
-        super(driver);
-    }
 
     private By btn_cookie = By.cssSelector("#js-closeCookieBanner > img");
     private By tx_pick_up_location = By.cssSelector("#ftsAutocomplete");
@@ -25,7 +19,7 @@ public class HomePage extends BasePage {
     private By lbl_message_login_sucess = By.cssSelector("#langCurrencyForm p");
     private By btn_menu_control_panel = By.cssSelector("a[href*=Dashboard]");
     private By btn_most_wanted_destinations = By.id("globalNavCrumbLink");
-
+    private By btn_contact = By.xpath("//a[contains(text(),'Contato')]");
 
     public void mostWantedDestinationsClickOn() {
         click(btn_most_wanted_destinations);
@@ -106,5 +100,9 @@ public class HomePage extends BasePage {
 
     public void destinationClickOn(String destination){
         click(By.xpath("//em[contains(text(),'"+destination+"')]"));
+    }
+
+    public void contactClickOn(){
+        click(btn_contact);
     }
 }

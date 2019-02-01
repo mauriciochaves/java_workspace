@@ -7,9 +7,9 @@ import pages.BasePage;
 public class CesarPage extends BasePage {
 
     //em cada page é necessario no construtor passar o super(driver) e extends BasePage
-    public CesarPage(WebDriver driver) {
-        super(driver);
-    }
+//    public CesarPage(WebDriver driver) {
+//        super(driver);
+//    }
 
     private By especification = By.xpath("(//a[contains(text(),'SAIBA MAIS')])[2]");
     private By catEspecification = By.cssSelector("li.cat-item.cat-item-126 > a");
@@ -42,5 +42,8 @@ public class CesarPage extends BasePage {
     public void resultClick () {
         click(return_search);
     }
+     public WebDriver getDriver(){
+        return driver();
+     }
 
 }

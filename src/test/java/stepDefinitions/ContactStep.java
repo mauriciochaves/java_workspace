@@ -1,41 +1,42 @@
 package stepDefinitions;
 
-import cucumber.api.java.en.Given;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.openqa.selenium.WebDriver;
-
+import org.junit.Assert;
+import pages.ContactPage;
 
 public class ContactStep {
-    WebDriver driver = Environment.driver;
+ContactPage contact;
 
-    @When("Eu acesso ContactPage")
-    public void eu_acesso_ContactPage() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+    @When("A página de ajuda e suporte está carregada com sucesso")
+    public void aPáginaDeAjudaESuporteEstáCarregadaComSucesso() {
+        contact = new ContactPage();
+
     }
 
-    @When("Digito a pergunta {string} e clico em Pesquisar")
-    public void digito_a_pergunta_e_clico_em_Pesquisar(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+    @And("informo a pergunta: {string} e clico em Pesquisar")
+    public void informoAPerguntaEClicoEmPesquisar(String question) {
+        contact.setQuestion(question);
+        contact.searchClickOn();
+
     }
 
-    @Then("Abro a descrição da pergunta feita")
-    public void abro_a_descrição_da_pergunta_feita() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+    @Then("abro a descrição da pergunta feita")
+    public void abroADescriçãoDaPerguntaFeita() throws InterruptedException {
+        contact.firstQuestionClickOn();
+
     }
 
-    @Then("efetuo like na resposta")
-    public void efetuo_like_na_resposta() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+    @And("efetuo like na resposta")
+    public void efetuoLikeNaResposta() throws InterruptedException {
+        contact.like();
+
     }
 
-    @Then("Valido a mensagem de sucesso é igual à {string}")
-    public void valido_a_mensagem_de_sucesso_é_igual_à(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+    @And("Verifico a mensagem de exibida")
+    public void verificoAMensagemDeExibida() {
+       Assert.assertEquals("Obrigado, iremos utilizar sua avaliação para melhorar nossas respostas.",contact.getMessageSucessLike());
+
     }
 }

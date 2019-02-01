@@ -1,20 +1,17 @@
 package stepDefinitions;
 
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
 import pages.MyAccountPage;
 
 
 public class MyAccountStep {
-    WebDriver driver = Environment.driver;
     MyAccountPage account;
 
     @When("a página da minha conta está carregada com sucesso")
     public void aPáginaDaMinhaContaEstáCarregadaComSucesso() {
-        account = new MyAccountPage(driver);
+        account = new MyAccountPage();
 
     }
 

@@ -3,14 +3,10 @@ package stepDefinitions;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
 import pages.HomePage;
 
-
 public class HomeStep {
-    WebDriver driver = Environment.driver;
     HomePage home;
-
 
     @Given("preencho o local de retirada com {string}")
     public void preencho_o_local_de_retirada_com(String local) throws InterruptedException {
@@ -21,9 +17,8 @@ public class HomeStep {
 
     @Given("A página inicial está carregada com sucesso")
     public void aPáginaInicialEstaCarregadaComSucesso() {
-        home = new HomePage(driver);
+        home = new HomePage();
         home.messageCookie();
-
 
     }
 
@@ -44,7 +39,6 @@ public class HomeStep {
         home.searchClickOn();
 
     }
-
 
     @And("clico em Login")
     public void clicoEmLogin() {
@@ -82,6 +76,12 @@ public class HomeStep {
     @And("seleciono a opção {string}")
     public void selecionoAOpção(String destination) {
         home.destinationClickOn(destination);
+
+    }
+
+    @And("clico em Contato")
+    public void clicoEmContato() {
+        home.contactClickOn();
 
     }
 }

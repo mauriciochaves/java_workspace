@@ -1,19 +1,16 @@
 package stepDefinitions;
 
 import cucumber.api.java.en.And;
-import cucumber.api.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
 import pages.ConductorPage;
 
 
 public class ConductorStep {
-    WebDriver driver = Environment.driver;
     ConductorPage conductor;
     
     @And("A página do condutor do veículo carregada com sucesso")
     public void aPáginaDoCondutorDoVeículoCarregadaComSucesso() {
-        conductor = new ConductorPage(driver);
+        conductor = new ConductorPage();
         String message = conductor.getTitleDataConductor();
         Assert.assertEquals("Dados do condutor", message);
         

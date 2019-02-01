@@ -5,11 +5,6 @@ import org.openqa.selenium.WebDriver;
 
 public class ConductorPage extends BasePage {
 
-    public ConductorPage(WebDriver driver) {
-        super(driver);
-    }
-
-
     private By lbl_title_data_conductor = By.cssSelector(".box h2");
     private By select_title = By.cssSelector(".form-border:nth-child(2) select");
     private By tx_firstname = By.id("f_name_input");
@@ -24,7 +19,6 @@ public class ConductorPage extends BasePage {
 
     public void setDataConductor(String title, String firstname, String lastname, String email, String phone){
         setComboboxByText(select_title,title);
-        //send(driver.findElement(select_title),title, false);
         send(tx_firstname,firstname, true);
         send(tx_lastname,lastname, true);
         send(tx_email,email, true);

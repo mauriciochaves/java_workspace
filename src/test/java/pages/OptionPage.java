@@ -5,10 +5,6 @@ import org.openqa.selenium.WebDriver;
 
 public class OptionPage extends BasePage {
 
-    public OptionPage(WebDriver driver) {
-        super(driver);
-    }
-
     private By btn_continue_payment_without_cover = By.id("removePolicyButton");
     private By lbl_rental_localization = By.cssSelector("h2[class='section__title']");
 

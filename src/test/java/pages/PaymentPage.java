@@ -5,10 +5,6 @@ import org.openqa.selenium.WebDriver;
 
 public class PaymentPage extends BasePage {
 
-    public PaymentPage(WebDriver driver) {
-        super(driver);
-    }
-
     private By lbl_title_data_payment = By.cssSelector(".box h2");
     private By select_card_banner = By.cssSelector("#paymentMethod:nth-child(2)"); //cardType_input
     private By tx_card_name = By.id("cardName_input");

@@ -6,10 +6,6 @@ import org.openqa.selenium.WebDriver;
 
 public class SearchPage extends BasePage {
 
-    public SearchPage(WebDriver driver) {
-        super(driver);
-    }
-
     private By lbl_devolution_location = By.cssSelector(".search-summary__location");
     private By list_results_cars_page = By.cssSelector(".carResultDiv");
 
@@ -67,6 +63,12 @@ public class SearchPage extends BasePage {
     public void continueButtonClickOn (String car) throws InterruptedException {
         Thread.sleep(3000);
         move_for_click(By.xpath("//span[contains(text(),'"+car+"')]/following-sibling::span[contains(text(),'Continuar')]"));
+
+    }
+
+    public void saveBudgetClickOn (String car) throws InterruptedException {
+        Thread.sleep(3000);
+        move_for_click(By.xpath("//span[contains(text(),'"+car+"')]/../../div/div/a[contains(text(),'Salvar orçamento')]"));
 
     }
 }

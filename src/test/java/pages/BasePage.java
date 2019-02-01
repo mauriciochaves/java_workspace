@@ -7,6 +7,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import stepDefinitions.Environment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,11 +21,14 @@ public  class BasePage {
     List<String> tabs;
     Select combobox;
 
-    protected BasePage(WebDriver driver) {
-        this.driver = driver;
+    protected BasePage() {
+        this.driver = Environment.driver;
         action = new Actions(driver);
         wait = new WebDriverWait(driver, 30);
 
+    }
+    protected WebDriver driver(){
+        return driver;
     }
 
     protected void click (By by){
@@ -102,6 +106,5 @@ public  class BasePage {
         combobox = new Select(driver.findElement(by));
         combobox.selectByValue(value);
     }
-
 
 }
