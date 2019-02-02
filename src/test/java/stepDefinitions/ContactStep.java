@@ -10,32 +10,32 @@ public class ContactStep {
 ContactPage contact;
 
     @When("A página de ajuda e suporte está carregada com sucesso")
-    public void aPáginaDeAjudaESuporteEstáCarregadaComSucesso() {
+    public void getContactPage() {
         contact = new ContactPage();
 
     }
 
     @And("informo a pergunta: {string} e clico em Pesquisar")
-    public void informoAPerguntaEClicoEmPesquisar(String question) {
+    public void setQuestion(String question) {
         contact.setQuestion(question);
         contact.searchClickOn();
 
     }
 
     @Then("abro a descrição da pergunta feita")
-    public void abroADescriçãoDaPerguntaFeita() throws InterruptedException {
+    public void descriptionClick() throws InterruptedException {
         contact.firstQuestionClickOn();
 
     }
 
     @And("efetuo like na resposta")
-    public void efetuoLikeNaResposta() throws InterruptedException {
+    public void setLike() throws InterruptedException {
         contact.like();
 
     }
 
     @And("Verifico a mensagem de exibida")
-    public void verificoAMensagemDeExibida() {
+    public void getMessageSuccess() {
        Assert.assertEquals("Obrigado, iremos utilizar sua avaliação para melhorar nossas respostas.",contact.getMessageSucessLike());
 
     }

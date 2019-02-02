@@ -8,7 +8,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import stepDefinitions.Environment;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +26,7 @@ public  class BasePage {
         wait = new WebDriverWait(driver, 30);
 
     }
+
     protected WebDriver driver(){
         return driver;
     }

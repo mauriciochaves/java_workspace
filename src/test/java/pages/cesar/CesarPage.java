@@ -6,7 +6,7 @@ import pages.BasePage;
 
 public class CesarPage extends BasePage {
 
-    //em cada page é necessario no construtor passar o super(driver) e extends BasePage
+//    em cada page é necessario no construtor passar o super(driver) e extends BasePage
 //    public CesarPage(WebDriver driver) {
 //        super(driver);
 //    }

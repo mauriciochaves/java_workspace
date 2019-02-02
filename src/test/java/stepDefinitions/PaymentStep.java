@@ -10,14 +10,14 @@ public class PaymentStep {
 
 
     @Then("A página de pagamento está carregada com sucesso")
-    public void aPáginaDePagamentoEstáCarregadaComSucesso() {
+    public void getPaymentPage() {
         payment = new PaymentPage();
         Assert.assertEquals("Dados de pagamento", payment.getTitleDataPayment());
 
     }
 
     @And("Valido apresentação dos campos necessários para informar os dados de pagamento")
-    public void validoApresentaçãoDosCamposNecessáriosParaInformarOsDadosDePagamento() {
+    public void checkFieldsDataPayment() {
         Assert.assertTrue(payment.returnDataPaymentIsDisplay());
 
     }

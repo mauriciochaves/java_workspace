@@ -7,7 +7,6 @@ import org.junit.Assert;
 import pages.cesar.CesarPage;
 
 public class CesarStep {
-
     CesarPage home= new CesarPage();
 
 

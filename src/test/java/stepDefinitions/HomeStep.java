@@ -9,78 +9,78 @@ public class HomeStep {
     HomePage home;
 
     @Given("preencho o local de retirada com {string}")
-    public void preencho_o_local_de_retirada_com(String local) throws InterruptedException {
+    public void setPlaceWithdrawal(String local) throws InterruptedException {
         home.setPickUpLocation(local);
 
 
     }
 
     @Given("A página inicial está carregada com sucesso")
-    public void aPáginaInicialEstaCarregadaComSucesso() {
+    public void getHomePage() {
         home = new HomePage();
         home.messageCookie();
 
     }
 
     @And("data de retirada igual à {string} do mês atual e data de devolução igual à {string} do próximo mês")
-    public void dataDeRetiradaIgualÀDoMêsAtualEDataDeDevoluçãoIgualÀDoPróximoMês(String date1, String date2){
+    public void setDateWithdrawalAndDateDevolution(String date1, String date2){
         home.setDatesPickUpDropOff(Integer.parseInt(date1), Integer.parseInt(date2), 1);
 
     }
 
     @And("idade do contudor com {string} anos")
-    public void idadeDoContudorComAnos(String idade) throws InterruptedException {
+    public void setConductorAge(String idade) throws InterruptedException {
         home.setAgedBetween(idade);
 
     }
 
     @Given("clico em pesquisar")
-    public void clico_em_pesquisar() {
+    public void searchClick() {
         home.searchClickOn();
 
     }
 
     @And("clico em Login")
-    public void clicoEmLogin() {
+    public void loginClick() {
         home.loginMenuClickOn();
     }
 
     @And("preencho o campo e-mail com {string}, senha com {string} e clico em Login")
-    public void preenchoOCampoEMailComSenhaComEClicoEmLogin(String email, String password) {
+    public void setLogin(String email, String password) {
         home.login(email, password);
 
     }
 
     @And("valido a mensagem informando que estou logado com o usuário {string}")
-    public void validoAMensagemInformandoQueEstouLogadoComOUsuário(String user) throws InterruptedException {
+    public void validMessageLogin(String user) throws InterruptedException {
         String message =  home.getMessageLoginSucess();
         Assert.assertEquals("Bem-vindo,\nVocê está logado como "+user, message);
     }
 
     @And("clico em Minha Conta")
-    public void clicoEmMinhaConta() {
+    public void myAccountClick() {
         home.loginMenuClickOn();
     }
 
     @And("clico em Painel de Controle")
-    public void clicoEmPainelDeControle() {
+    public void ControlPanelClick() {
         home.controlPanelClickOn();
     }
 
     @And("clico em destinos mais buscados")
-    public void clicoEmDestinosMaisBuscados() {
+    public void wantedDestinationsClick() {
         home.mostWantedDestinationsClickOn();
 
     }
 
     @And("seleciono a opção {string}")
-    public void selecionoAOpção(String destination) {
+    public void optionClick(String destination) {
         home.destinationClickOn(destination);
 
     }
 
     @And("clico em Contato")
-    public void clicoEmContato() {
+    public void contactClick() {
         home.contactClickOn();
 
     }

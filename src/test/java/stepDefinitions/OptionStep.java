@@ -8,7 +8,7 @@ public class OptionStep {
     OptionPage option;
 
     @And("A página de opções está carregada com sucesso")
-    public void aPáginaDeOpçõesEstáCarregadaComSucesso() {
+    public void getOptionPage() {
         option= new OptionPage();
         option.switchNewTabOption();
         Assert.assertEquals("Localização da locadora",option.getTitleRentalLocalization());
@@ -16,7 +16,7 @@ public class OptionStep {
     }
 
     @And("clico em Prosseguir ao pagamento sem cobertura superior")
-    public void clicoEmProsseguirAoPagamentoSemCoberturaSuperior() {
+    public void paymentWithoutCoverClick() {
         option.continuePaymentWithoutCoverClickOn();
 
     }

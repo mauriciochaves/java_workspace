@@ -10,37 +10,37 @@ public class SearchStep {
     SearchPage search;
 
     @When("A página de pesquisa está carregada com sucesso")
-    public void aPáginaDePesquisaEstáCarregadaComSucesso()  {
+    public void getSearchPage()  {
         search = new SearchPage();
 
     }
 
     @When("filtro por depósito de retirada abaixo de {string} reais")
-    public void filtro_por_Depósito_de_Retirada_abaixo_de__reais(String value) {
+    public void selectFilterDepositWithdrawal(String value) {
         search.selectFilterDepositWithdrawal(value);
 
 
     }
 
     @When("filtro por {string}")
-    public void filtro_por(String filtro) {
+    public void setFilter(String filtro) {
         search.selectFilterCarSize(filtro);
 
     }
 
     @Then("Verifico se a pesquisa retornou resultados")
-    public void verificoSeAPesquisaRetornouResultados() {
+    public void getListResults() {
         Assert.assertTrue(search.getResultTotalCars() != 0);
 
     }
 
     @And("seleciono Continuar no carro {string} da lista de resultados")
-    public void selecionoContinuarNoCarroDaListaDeResultados(String car) throws InterruptedException {
+    public void continueClick(String car) throws InterruptedException {
         search.continueButtonClickOn(car);
     }
 
     @And("clico em Salvar Orçamento no carro {string} da lista de resultados")
-    public void clicoEmSalvarOrçamentoNoCarroDaListaDeResultados(String car) throws InterruptedException {
+    public void budgeSaveClick(String car) throws InterruptedException {
         search.saveBudgetClickOn(car);
     }
 }

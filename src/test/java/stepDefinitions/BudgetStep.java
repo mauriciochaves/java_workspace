@@ -9,25 +9,25 @@ public class BudgetStep {
     BudgetPage budge;
 
     @Then("A página de orçamento está carregada com sucesso")
-    public void aPáginaDeOrçamentoEstáCarregadaComSucesso() throws InterruptedException {
+    public void getBudgePage() throws InterruptedException {
         budge = new BudgetPage();
         Assert.assertEquals("Enviar orçamento", budge.getTitleBudgeSend());
 
     }
 
     @And("preencho os dados do condutor onde Nome: {string}, Sobrenome: {string}, email: {string}, Telefone: {string}")
-    public void preenchoOsDadosDoCondutorOndeNomeSobrenomeEmailTelefone(String firstname, String lastname, String email, String phone) {
+    public void setDataConductor(String firstname, String lastname, String email, String phone) {
         budge.setDataConductor(firstname, lastname, email, phone);
     }
 
     @And("clico em Enviar Email")
-    public void clicoEmEnviarEmail() {
+    public void sendEmailClick() {
         budge.sendEmailClickOn();
 
     }
 
     @And("Verifico a mensagem de sucesso")
-    public void verificoAMensagemDeSucesso() {
+    public void getMessageSuccess() {
         Assert.assertEquals("Obrigado Testes, Seu orçamento está a caminho.", budge.getMessageThankUser());
 
     }
