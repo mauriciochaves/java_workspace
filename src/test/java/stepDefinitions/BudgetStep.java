@@ -9,7 +9,7 @@ public class BudgetStep {
     BudgetPage budge;
 
     @Then("A página de orçamento está carregada com sucesso")
-    public void getBudgePage() throws InterruptedException {
+    public void getBudgePage() {
         budge = new BudgetPage();
         Assert.assertEquals("Enviar orçamento", budge.getTitleBudgeSend());
 

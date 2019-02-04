@@ -12,8 +12,8 @@ public class OptionPage extends BasePage {
         click(btn_continue_payment_without_cover);
     }
 
-    public String getTitleRentalLocalization() throws InterruptedException {
-        Thread.sleep(2000);
+    public String getTitleRentalLocalization() {
+        loading(2);
         return text(lbl_rental_localization);
     }
 

@@ -35,12 +35,12 @@ public class SearchStep {
     }
 
     @And("seleciono Continuar no carro {string} da lista de resultados")
-    public void continueClick(String car) throws InterruptedException {
+    public void continueClick(String car) {
         search.continueButtonClickOn(car);
     }
 
     @And("clico em Salvar Orçamento no carro {string} da lista de resultados")
-    public void budgeSaveClick(String car) throws InterruptedException {
+    public void budgeSaveClick(String car) {
         search.saveBudgetClickOn(car);
     }
 }

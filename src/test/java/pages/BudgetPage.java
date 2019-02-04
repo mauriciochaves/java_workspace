@@ -26,8 +26,8 @@ public class BudgetPage extends BasePage {
         return text(lbl_message_thank_user)+", "+text(lbl_message_budge_send);
     }
 
-    public String getTitleBudgeSend() throws InterruptedException {
-        Thread.sleep(2000);
+    public String getTitleBudgeSend() {
+        loading(2);
         return text(lbl_title_budge_send);
     }
 

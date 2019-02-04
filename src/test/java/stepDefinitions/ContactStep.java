@@ -23,13 +23,13 @@ ContactPage contact;
     }
 
     @Then("abro a descrição da pergunta feita")
-    public void descriptionClick() throws InterruptedException {
+    public void descriptionClick() {
         contact.firstQuestionClickOn();
 
     }
 
     @And("efetuo like na resposta")
-    public void setLike() throws InterruptedException {
+    public void setLike() {
         contact.like();
 
     }

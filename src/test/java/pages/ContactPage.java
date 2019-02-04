@@ -20,13 +20,13 @@ public class ContactPage extends BasePage {
 
     }
 
-    public void firstQuestionClickOn() throws InterruptedException {
-        Thread.sleep(3000);
+    public void firstQuestionClickOn() {
+        loading(3);
         click(btn_first_question);
     }
 
-    public void like() throws InterruptedException {
-        Thread.sleep(2000);
+    public void like() {
+        loading(2);
         click(btn_like);
     }
 

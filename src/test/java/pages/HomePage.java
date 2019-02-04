@@ -26,9 +26,9 @@ public class HomePage extends BasePage {
 
     }
 
-    public void setPickUpLocation (String text) throws InterruptedException {
+    public void setPickUpLocation (String text) {
         send(tx_pick_up_location, text, true);
-        Thread.sleep(2000);
+        loading(2);
         move_for_click(By.xpath("//a/div/em[contains(text(),'"+text+"')]"));
 
     }
@@ -65,16 +65,16 @@ public class HomePage extends BasePage {
 
     }
 
-    public void setAgedBetween (String age) throws InterruptedException {
-        Thread.sleep(1000);
+    public void setAgedBetween (String age) {
+        loading(1);
         if ( Integer.parseInt(age) < 30){
             click(cb_age_between);
             send(tx_age_between, age, true);
         }
     }
 
-    public void searchClickOn() throws InterruptedException {
-        Thread.sleep(3000);
+    public void searchClickOn(){
+        loading(3);
         click(btn_search);
     }
 
@@ -90,8 +90,8 @@ public class HomePage extends BasePage {
 
     }
 
-    public String getMessageLoginSucess() throws InterruptedException {
-        Thread.sleep(1000);
+    public String getMessageLoginSucess() {
+        loading(1);
         return text(lbl_message_login_sucess);
     }
 

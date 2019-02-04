@@ -55,14 +55,14 @@ public class SearchPage extends BasePage {
         return count;
     }
 
-    public void continueButtonClickOn (String car) throws InterruptedException {
-        Thread.sleep(2000);
+    public void continueButtonClickOn (String car) {
+        loading(2);
         move_for_click(By.xpath("//span[contains(text(),'"+car+"')]/following-sibling::span[contains(text(),'Continuar')]"));
 
     }
 
-    public void saveBudgetClickOn (String car) throws InterruptedException {
-        Thread.sleep(3000);
+    public void saveBudgetClickOn (String car)  {
+        loading(2);
         move_for_click(By.xpath("//span[contains(text(),'"+car+"')]/../../div/div/a[contains(text(),'Salvar orçamento')]"));
 
     }

@@ -9,7 +9,7 @@ public class HomeStep {
     HomePage home;
 
     @Given("preencho o local de retirada com {string}")
-    public void setPlaceWithdrawal(String local) throws InterruptedException {
+    public void setPlaceWithdrawal(String local) {
         home.setPickUpLocation(local);
 
 
@@ -29,13 +29,13 @@ public class HomeStep {
     }
 
     @And("idade do contudor com {string} anos")
-    public void setConductorAge(String idade) throws InterruptedException {
+    public void setConductorAge(String idade) {
         home.setAgedBetween(idade);
 
     }
 
     @Given("clico em pesquisar")
-    public void searchClick() throws InterruptedException {
+    public void searchClick() {
         home.searchClickOn();
 
     }
@@ -52,7 +52,7 @@ public class HomeStep {
     }
 
     @And("valido a mensagem informando que estou logado com o usuário {string}")
-    public void validMessageLogin(String user) throws InterruptedException {
+    public void validMessageLogin(String user) {
         String message =  home.getMessageLoginSucess();
         Assert.assertEquals("Bem-vindo,\nVocê está logado como "+user, message);
     }
