@@ -35,7 +35,7 @@ public class HomeStep {
     }
 
     @Given("clico em pesquisar")
-    public void searchClick() {
+    public void searchClick() throws InterruptedException {
         home.searchClickOn();
 
     }

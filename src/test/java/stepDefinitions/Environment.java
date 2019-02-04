@@ -1,13 +1,15 @@
 package stepDefinitions;
 
-
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.ie.InternetExplorerOptions;
 import util.Utils;
-
 import java.io.IOException;
 
 public class Environment {
@@ -30,8 +32,26 @@ public class Environment {
     @Before
     public void beforeScenario() throws IOException {
         if (util.getKey(KEY_BROWSER).equals(FIREFOX)){
+            System.setProperty("webdriver.gecko.driver", util.getKey(KEY_PATH_DRIVER)+FIREFOX_EXE);
+
+            if (util.getKey(KEY_DRIVER)==DRIVER_HEEADLESS){
+                FirefoxOptions options = new FirefoxOptions();
+                options.addArguments("--headless");
+                this.driver = new FirefoxDriver(options);
+            } else{
+                this.driver = new FirefoxDriver();
+            }
+
 
         } else if(util.getKey(KEY_BROWSER).equals(INTERNET_EXPLORER)){
+            System.setProperty("webdriver.ie.driver",util.getKey(KEY_PATH_DRIVER)+INTERNET_EXPLORER_EXE);
+            if (util.getKey(KEY_DRIVER)==DRIVER_HEEADLESS){
+                InternetExplorerOptions options = new InternetExplorerOptions();
+                options.addCommandSwitches("--headless");
+                this.driver= new InternetExplorerDriver(options);
+            } else{
+                this.driver= new InternetExplorerDriver();
+            }
 
 
         }else{

@@ -6,12 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 public class SearchPage extends BasePage {
 
-    private By lbl_devolution_location = By.cssSelector(".search-summary__location");
     private By list_results_cars_page = By.cssSelector(".carResultDiv");
-
-    public String getLocationPreview(){
-        return text(lbl_devolution_location);
-    }
 
     public void selectFilterDepositWithdrawal (String value){
 
@@ -61,7 +56,7 @@ public class SearchPage extends BasePage {
     }
 
     public void continueButtonClickOn (String car) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         move_for_click(By.xpath("//span[contains(text(),'"+car+"')]/following-sibling::span[contains(text(),'Continuar')]"));
 
     }

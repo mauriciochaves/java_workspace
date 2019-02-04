@@ -80,7 +80,7 @@ public  class BasePage {
     }
 
     protected void move_for_click (By by){
-        action.moveToElement(find(by)).click().build().perform();
+        action.moveToElement(find_for_click(by)).click().build().perform();
 
     }
 

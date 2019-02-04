@@ -11,7 +11,7 @@ public class HomePage extends BasePage {
     private By btn_pick_up_date_next_month = By.cssSelector("#dateselect-month-forward");
     private By cb_age_between = By.cssSelector("#driver-over-min-age");
     private By tx_age_between = By.cssSelector("#driver-age-input");
-    private By btn_search = By.cssSelector("#formsubmit");
+    private By btn_search = By.cssSelector("#btn-fieldset input[value=Pesquisar]");
     private By btn_login_menu =By.cssSelector("#rch-select-sign-in");
     private By tx_email = By.id("crmEmail");
     private By tx_password = By.id("crmPsw");
@@ -73,7 +73,8 @@ public class HomePage extends BasePage {
         }
     }
 
-    public void searchClickOn(){
+    public void searchClickOn() throws InterruptedException {
+        Thread.sleep(3000);
         click(btn_search);
     }
 

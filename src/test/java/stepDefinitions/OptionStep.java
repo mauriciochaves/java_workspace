@@ -8,7 +8,7 @@ public class OptionStep {
     OptionPage option;
 
     @And("A página de opções está carregada com sucesso")
-    public void getOptionPage() {
+    public void getOptionPage() throws InterruptedException {
         option= new OptionPage();
         option.switchNewTabOption();
         Assert.assertEquals("Localização da locadora",option.getTitleRentalLocalization());
