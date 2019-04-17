@@ -11,4 +11,3 @@ Feature: Cesar School
       When No campo de procura,pesquisar pela especialização "testes"
       When Seleciono uma especialização
       Then Valido se a especialização selecionada apareceu
-
