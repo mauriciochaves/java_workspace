@@ -1,5 +1,3 @@
-# java_workspace
-student
 
 Projeto para praticas de automação de testes com linguagem Java.
 
