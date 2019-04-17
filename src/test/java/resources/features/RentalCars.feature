@@ -65,11 +65,3 @@ Feature: Rental Cars
       Then abro a descrição da pergunta feita
       And efetuo like na resposta
       And Verifico a mensagem de exibida
-
-
-
-
-
-
-
-
